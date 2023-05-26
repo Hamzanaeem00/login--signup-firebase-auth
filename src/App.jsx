@@ -15,7 +15,7 @@ function App() {
         setUserName(user.displayName);
       } else setUserName("");
     });
-  }, []);
+  }, [userName]);
   return (
     <div className="App">
       <Router>

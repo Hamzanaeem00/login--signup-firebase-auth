@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import styles from "./Signup.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import InputControl from "../InputControl/InputControl";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  updateProfile,
+} from "firebase/auth";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -28,12 +32,12 @@ const Signup = () => {
       .then(async (res) => {
         console.log("res==>", res);
         setSubmitButtonDisabled(false);
-        // const user = res.user;
-        // console.log(user);
-        // await updateProfile(user, {
-        //   displayName: values.name,
-        // });
-        navigate("/");
+        const user = res.user;
+        console.log(user);
+        await updateProfile(user, {
+          displayName: values.name,
+        });
+        navigate("/login");
       })
       .catch((err) => {
         setSubmitButtonDisabled(false);

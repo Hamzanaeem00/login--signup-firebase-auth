@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Input.module.css";
 
 const InputControl = (props) => {
-  console.log("props===>", props);
+  // console.log("props===>", props);
   return (
     <div className={styles.container}>
       {props.label && <label>{props.label}</label>}
