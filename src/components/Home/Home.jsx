@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Home = (props) => {
-  console.log("propss==>", props);
+const Home = (user) => {
+  console.log("Homepropss==>", user);
   return (
     <div>
       <div>
@@ -19,7 +19,7 @@ const Home = (props) => {
       <br />
       <br />
 
-      <h2>{props.name ? `Welcome - ${props.name}` : "Login please"}</h2>
+      <h2>{user.name ? `Welcome - ${user.name}` : "Login please"}</h2>
     </div>
   );
 };
